@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstdlib>   // para rand() y srand()
+#include <ctime>     // para time()
+
+using namespace std;
+
+void eliminarRandom(int A[], int n) {
+
+    while (n > 0) {
+
+        int pos = rand() % n;   // número entre 0 y n-1
+
+        cout << "Eliminando: " << A[pos] << endl;
+
+        A[pos] = A[n - 1];  // mover último al lugar eliminado
+        n--;
+    }
+}
+
+int main() {
+
+    srand(time(0));   // inicializa la semilla
+
+    int A[] = {10, 20, 30, 40, 50};
+    int n = 5;
+
+    eliminarRandom(A, n);
+
+    return 0;
+}
